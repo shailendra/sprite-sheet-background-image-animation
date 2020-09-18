@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+</head>
+
+<body>
+    <div class="box red" id="redBox">
+        <div class="padder"></div>
+    </div>
+
+
+    <button onclick="pause()">Pause</button>
+    <button onclick="play()" >Play</button>
+    <button onclick="restart()">Restart</button>
+    <button onclick="reverse()">Reverse</button>
+    <button onclick="once()">loop once</button>
+    <button onclick="infinity()">loop infinity</button>
+    <br>
+    <button onclick="timeScale(1)">speed 1x</button>
+    <button onclick="timeScale(4)">speed 4x</button>
+    <button onclick="timeScale(10)">speed 10x</button>
+    <br>
+    <button onclick="gotoAndStop(4)" >gotoAndStop 4</button>
+    <button onclick="gotoAndPlay(8)" >gotoAndPlay 8</button>
+    <br><br>
+    This is the image that is used as the background in the div above<br>
+    <img src="images/spritesheet-img.png" style="width: 500px; height: auto;">
+    <script src="js/SpriteSheetAnimator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

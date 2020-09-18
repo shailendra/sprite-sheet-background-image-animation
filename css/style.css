@@ -1,0 +1,40 @@
+body {
+    font-family:sans-serif;
+  }
+  
+  h1 {
+    margin: 5px 0;
+  }
+  h3 {
+    margin:0;
+    font-size:16px;
+  }
+  .demo {
+    width:600px;
+    height:120px;
+    background-color:black;
+  }
+  
+  .box {
+    border: 1px solid grey;
+    position:relative;
+    width:300px;
+    height:auto;
+    position:relative;
+    margin-bottom:2px;
+    background:url(../images/spritesheet-img.png);
+      
+  }  
+  .red {
+    background-color:rgb(228, 228, 228);
+  }  
+  .nav {
+    width:600px;
+    background-color:#ccc;
+    text-align:right;
+  }
+  
+  button {
+    padding:10px;
+    margin:5px;
+  }
