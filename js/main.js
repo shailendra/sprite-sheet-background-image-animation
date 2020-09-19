@@ -5,7 +5,15 @@ var spAimObj = new SpriteSheetAnimator({
     col: 4,
     row: 4,
     targetDiv:".box",
-    paddingDiv:".box .padder"
+    paddingDiv:".box .padder",
+    timeScale:1,
+    repeat:0,
+    onComplete:function(){
+        console.log("onComplete");
+    },
+    onFrameChange:function(){        
+        console.log("onFrameChange");
+    }
 })
 function play(){ 
     spAimObj.tween.play(); 

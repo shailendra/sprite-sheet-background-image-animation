@@ -16,6 +16,11 @@
         // this.row             Number of Row in Sprite
         // this.targetDiv       Where you want to play animation
         // this.paddingDiv      with the help of this div we can control height of targetDiv.
+        // this.timeScale       Animation Speed. default value is 1
+        // this.repeat          repeat animation, default is 0, will play once
+        //
+        this.timeScale = 1;
+        this.repeat = 0;
         for (const key in param) {
             if (param.hasOwnProperty(key)) {
                 this[key] = param[key];
@@ -34,12 +39,18 @@
             onUpdate: function () {
                 if (This.tempFrame !== This.curFrame) {
                     This.curFrame = This.tempFrame;
-                    This.onFrameChange();
+                    This.onUpdate();
                 }
             },
-            repeat: -1,
-            paused:true
+            repeat: this.repeat,
+            paused:true,
+            onComplete:function(){
+                if(This.onComplete){
+                    This.onComplete();
+                }
+            }
         })
+        this.tween.timeScale(this.timeScale);
         this.tween.gotoAndStop = function(frame){This.gotoAndStop(frame);};
         this.tween.gotoAndPlay = function(frame){This.gotoAndPlay(frame);};
             
@@ -68,16 +79,20 @@
             backgroundSize:(this.col*100)+"% auto"
         })
     }
-    p.onFrameChange = function () {
+    p.onUpdate = function () {
         //console.log(this.curFrame);
         var tempCol = this.curFrame%this.col;
-        var tempRow = Math.floor(this.curFrame/this.row);
+        var tempRow = Math.floor(this.curFrame/this.col);
         var posX = -tempCol*100;
         var posY = -tempRow*100;
         var backgroundPosition = posX+"% "+posY+"";
+        //console.log(backgroundPosition);
         gsap.set(this.targetDiv,{
             backgroundPosition: backgroundPosition,
-        })
+        });
+        if(this.onFrameChange){
+            this.onFrameChange();
+        }
     }
     window.SpriteSheetAnimator = SpriteSheetAnimator;
 }());
