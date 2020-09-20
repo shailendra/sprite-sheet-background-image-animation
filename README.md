@@ -1,7 +1,26 @@
 # Sprite Sheet Animation in HTML Using CSS and Javascript
 ![alt](images/demo-img.png)
 <br><br>
+```html
+//---- H T M L -----------
+<div class="box red" id="redBox">
+    <div class="padder"></div>
+</div>
+```
+
+```css
+//---- C S S ----------
+.box {
+    position:relative;
+    width:300px;
+    height:auto;
+    position:relative;
+    background:url(../images/spritesheet-img.png);      
+}  
+```
+
 ```javascript
+//---- J V A S C R I P T ---------------
 var spAimObj = new SpriteSheetAnimator({
     spriteWidth: 733,
     spriteHeight: 489,
@@ -9,14 +28,15 @@ var spAimObj = new SpriteSheetAnimator({
     col: 4,
     row: 4,
     targetDiv:".box",
-    paddingDiv:".box .padder",
+    paddingDiv:".padder",
     timeScale:1,
     repeat:0,
     onComplete:function(){
         console.log("onComplete");
     },
-    onFrameChange:function(){        
-        console.log("onFrameChange");
+    onFrameChange:function(param){
+        if(param.curFrame==9){            
+        }
     }
 })
 

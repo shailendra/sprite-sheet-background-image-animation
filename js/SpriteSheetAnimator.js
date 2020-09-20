@@ -91,7 +91,7 @@
             backgroundPosition: backgroundPosition,
         });
         if(this.onFrameChange){
-            this.onFrameChange();
+            this.onFrameChange({curFrame:this.curFrame+1});
         }
     }
     window.SpriteSheetAnimator = SpriteSheetAnimator;
