@@ -21,7 +21,7 @@
         //
         this.timeScale = 1;
         this.repeat = 0;
-        for (const key in param) {
+        for (var key in param) {
             if (param.hasOwnProperty(key)) {
                 this[key] = param[key];
             }
