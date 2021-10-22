@@ -52,22 +52,19 @@
         })
         this.tween.timeScale(this.timeScale);
         this.tween.gotoAndStop = function(frame){This.gotoAndStop(frame);};
-        this.tween.gotoAndPlay = function(frame){This.gotoAndPlay(frame);};
-            
+        this.tween.gotoAndPlay = function(frame){This.gotoAndPlay(frame);};            
         //
         this.updateUI();
     };
     p.gotoAndStop = function(frame){
         frame -=1;
         var progress = frame/this.frames;
-        //console.log(progress);
         this.tween.progress(progress);
         this.tween.pause();
     }
     p.gotoAndPlay = function(frame){
         frame -=1;
         var progress = frame/this.frames;
-        //console.log(progress);
         this.tween.progress(progress);
         this.tween.play();
     }
@@ -75,18 +72,19 @@
         if(this.paddingDiv && this.paddingDiv!=""){
             gsap.set(this.paddingDiv, {width:"100%", height:"auto", paddingBottom:this.paddingBottom+"%"})
         }
+        var width = this.col*100;
+        var height = this.row*100;
+        var backgroundSize = width+"% "+height+"%";
         gsap.set(this.targetDiv,{
-            backgroundSize:(this.col*100)+"% auto"
-        })
+            backgroundSize:backgroundSize
+        })       
     }
     p.onUpdate = function () {
-        //console.log(this.curFrame);
         var tempCol = this.curFrame%this.col;
         var tempRow = Math.floor(this.curFrame/this.col);
         var posX = -tempCol*100;
         var posY = -tempRow*100;
-        var backgroundPosition = posX+"% "+posY+"";
-        //console.log(backgroundPosition);
+        var backgroundPosition = posX+"% "+posY+"%";        
         gsap.set(this.targetDiv,{
             backgroundPosition: backgroundPosition,
         });
